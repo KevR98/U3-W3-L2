@@ -5,7 +5,9 @@ interface SingleArticleProps {
   articleToShow: Articoli;
 }
 
-const SingleArticle = ({ articleToShow }: SingleArticleProps) => {
+const SingleArticle = ({
+  articleToShow: { image_url, news_site, title, summary, published_at },
+}: SingleArticleProps) => {
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
     return date.toLocaleDateString('it-IT', {
@@ -27,7 +29,7 @@ const SingleArticle = ({ articleToShow }: SingleArticleProps) => {
         >
           <Card.Img
             variant='top'
-            src={articleToShow.image_url}
+            src={image_url}
             style={{
               height: '100%',
               objectFit: 'cover',
@@ -39,7 +41,7 @@ const SingleArticle = ({ articleToShow }: SingleArticleProps) => {
             className='position-absolute top-0 end-0 m-2'
             style={{ fontSize: '0.75rem' }}
           >
-            {articleToShow.news_site}
+            {news_site}
           </Badge>
         </div>
 
@@ -56,7 +58,7 @@ const SingleArticle = ({ articleToShow }: SingleArticleProps) => {
               overflow: 'hidden',
             }}
           >
-            {articleToShow.title}
+            {title}
           </Card.Title>
 
           <Card.Text
@@ -69,19 +71,19 @@ const SingleArticle = ({ articleToShow }: SingleArticleProps) => {
               overflow: 'hidden',
             }}
           >
-            {articleToShow.summary}
+            {summary}
           </Card.Text>
 
           <div className='mt-auto'>
             <div className='d-flex justify-content-between align-items-center'>
               <small className='text-muted'>
                 <i className='bi bi-calendar3 me-1'></i>
-                {formatDate(articleToShow.published_at)}
+                {formatDate(published_at)}
               </small>
               <Button
                 variant='outline-primary'
                 size='sm'
-                href={articleToShow.image_url}
+                href={image_url}
                 target='_blank'
                 className='px-3'
               >
