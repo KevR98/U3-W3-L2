@@ -4,7 +4,7 @@ import { GiRocketFlight } from 'react-icons/gi';
 const MyNavbar = () => {
   return (
     <>
-      <Navbar expand='lg' className='bg-secondary'>
+      <Navbar expand='lg' className='bg-body-secondary'>
         <Container fluid={true}>
           <Navbar.Brand href='#home'>
             <GiRocketFlight size={50} style={{ marginRight: '10px' }} />
